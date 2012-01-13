@@ -152,7 +152,7 @@
     </ScrollView>
     		
     <Button
-    	android:id="@+id/barkadaET"
+    	android:id="@+id/filterB"
     	android:layout_width="320dp"
     	android:layout_height="wrap_content"
     	android:text="Ok! Saan Na!">

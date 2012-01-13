@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:orientation="vertical">
+        
+        <ViewFlipper android:id="@+id/flippie"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+    		
+            <LinearLayout android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+        		android:orientation="vertical">
+            
+    			<TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+        		    android:layout_gravity="center"
+		            android:textColor="#8bccd0"
+        		    android:typeface="monospace"
+		            android:text="Manage"
+        		    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    			
+    			<TextView android:text=""
+    			    android:layout_width="fill_parent"
+    			    android:layout_height="70dp"
+    			    android:textAppearance="?android:attr/textAppearanceLarge"/>
+    			
+		        <Button
+        		    android:id="@+id/addB"
+            		android:layout_width="160dp"
+		            android:layout_height="wrap_content"
+        		    android:layout_gravity="center_horizontal"
+		            android:text="Add" />
+
+		        <TextView android:text=""
+    			    android:layout_width="fill_parent"
+    			    android:layout_height="10dp"
+    			    android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        		<Button
+            		android:id="@+id/ViewB"
+		            android:layout_width="160dp"
+        		    android:layout_height="wrap_content"
+		            android:layout_gravity="center"
+        		    android:text="View" />
+        	</LinearLayout>
+        	
+            <LinearLayout android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+        		android:orientation="vertical">
+        		    
+            <ScrollView
+                android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+        		android:orientation="vertical">
+                
+                <LinearLayout
+                android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+        		android:orientation="vertical"
+        		android:id="@+id/linearLayoutSV">
+                    
+                    <TextView
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+        		    android:layout_gravity="center"
+		            android:textColor="#8bccd0"
+        		    android:typeface="monospace"
+		            android:text="So you want to add a new Restaurant huh?"
+        		    android:textAppearance="?android:attr/textAppearanceLarge" />
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+				            android:layout_weight="1"
+		        		    android:text="Name: "
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <EditText android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:scrollHorizontally="true"
+                            android:layout_weight="1"
+                            android:id="@+id/NameET"
+                            android:hint="Required" />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Location: "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <Button android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:scrollHorizontally="true"
+                            android:hint="Required"
+                            android:layout_weight="1"
+                            android:id="@+id/LocB"
+                             />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Cuisine: "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <Spinner android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:prompt="@string/cuisinePrompt"
+                            android:id="@+id/CuisineS"
+                             />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Worth: "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right">
+                        
+                        <RatingBar android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/WorthRB"
+                            android:numStars="5"
+                            />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Opening time: "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <Button android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:text="Click to add"
+                            android:layout_weight="1"
+                            android:id="@+id/openingTimeB"
+                             />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Closing time: "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <Button android:layout_width="160dp"
+                            android:text="Click to add"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/closingTimeB"
+                             />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Pang-ilang tao? "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <EditText android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:scrollHorizontally="true"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:id="@+id/BarkadaET"
+                            android:hint="Required" />
+                        
+                    </TableRow>
+                    
+                    <LinearLayout android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        
+                        <Button
+		        		    android:id="@+id/AyosB"
+        				    android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+        				    android:layout_gravity="center"
+				            android:text="Ayos!" />
+                        
+                    </LinearLayout>
+                </LinearLayout>
+                
+            </ScrollView>
+            </LinearLayout>
+        	</ViewFlipper>
+        	
+        </LinearLayout>
+        
+        <TableRow android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+        
+        	<Button
+            	android:id="@+id/Home"
+	            android:layout_width="160dp"
+       		    android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:text="Home" />
+        	
+        	<Button
+            	android:id="@+id/Back"
+	            android:layout_width="160dp"
+       		    android:layout_height="wrap_content"
+	            android:layout_gravity="center_horizontal"
+	            android:text="Back" />
+        	</TableRow>
+        
+    
+</LinearLayout>

@@ -4,16 +4,7 @@
     <string name="hello">Hello World, SaanTayoKakainAndroidActivity!</string>
     <string name="app_name">Saan Tayo Kakain</string>
     <string name="question">Watcha wanna do?</string>
-    <string name="costPrompt">Doesn\'t matter</string>
-    <string-array name="costArray">
-        <item>Doesn\'t matter</item>
-        <item>100 and below</item>
-        <item>100 to 150</item>
-        <item>150 to 250</item>
-        <item>250 to 300</item>
-        <item>300 and above</item>
-    </string-array>
-    <string name="cuisinePrompt">Doesn\'t matter</string>
+    <string name="cuisinePrompt">Cuisine</string>
     <string-array name="cuisineArray">
         <item>Doesn\'t matter</item>
         <item>Chinese</item>
@@ -23,6 +14,15 @@
         <item>Mexican</item>
         <item>Pizza</item>
         <item>Other</item>
+    </string-array>
+    <string name="costPrompt">Cost</string>
+    <string-array name="costArray">
+        <item>Doesn\'t matter</item>
+        <item>100 and below</item>
+        <item>100 to 150</item>
+        <item>150 to 250</item>
+        <item>250 to 300</item>
+        <item>300 and above</item>
     </string-array>
     <string name="congratsLabel">You chose x!</string>
     <string name="viewLabel">Restaurant Menu</string>
