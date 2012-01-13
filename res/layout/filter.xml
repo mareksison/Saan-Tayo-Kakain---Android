@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+	
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9">
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+            
+    		<TextView
+    	    	android:id="@+id/filterTitle"
+    	    	android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+        		android:text="O, anong gusto mo?"
+        		android:gravity="center"
+        		android:textAppearance="?android:attr/textAppearanceLarge" />
+    		
+    		<TableRow 
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	        
+    	    	<TextView
+    	        	android:id="@+id/locationLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+        			android:textAppearance="?android:attr/textAppearanceLarge" />
+    	    
+    		</TableRow>
+    	
+    		<TableRow 
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	        
+    	    	<TextView
+    	        	android:id="@+id/locationLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+    	        	android:text="Saan ka, ba?"
+        			android:textAppearance="?android:attr/textAppearanceMedium" />
+    	    	
+    	    	<Button
+    	    	    android:id="@+id/locationB"
+    	    	    android:layout_width="160dp"
+    	    	    android:layout_height="wrap_content"
+    	    	    android:hint="Required">    	    	    
+    	    	</Button>
+    	    
+    		</TableRow>
+    		
+    		<TableRow 
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	        
+    	    	<TextView
+    	        	android:id="@+id/costLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+    	        	android:text="Magkano pera mo?"
+        			android:textAppearance="?android:attr/textAppearanceMedium" />
+    	    	
+    	    	<Spinner
+    	    	    android:id="@+id/costS"
+    	    	    android:layout_width="160dp"
+    	    	    android:layout_height="wrap_content"
+    	    	    android:prompt="@string/costPrompt">
+    	    	</Spinner>
+    	    
+    		</TableRow>
+    		
+    		<TableRow
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	    	
+    		    <TextView
+    	        	android:id="@+id/cuisineLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+    	        	android:text="Klase ng pagkain?"
+        			android:textAppearance="?android:attr/textAppearanceMedium" />
+    	    	
+    	    	<Spinner
+    	    	    android:id="@+id/cuisineS"
+    	    	    android:layout_width="160dp"
+    	    	    android:layout_height="wrap_content"
+    	    	    android:prompt="@string/cuisinePrompt">
+    	    	</Spinner>
+    		    
+    		</TableRow>
+    		
+    		<TableRow
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	    	
+    		    <TextView
+    	        	android:id="@+id/barkadaLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+    	        	android:text="Pang ilang tao?"
+        			android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    		    <EditText
+    		        android:id="@+id/barkadaET"
+    		        android:layout_width="160dp"
+    		        android:layout_height="wrap_content"
+    		        android:inputType="number">
+    		    </EditText>
+    		    
+    		</TableRow>
+
+    	    <TextView
+    	        android:id="@+id/worthLabel"
+    	        android:layout_width="160dp"
+    	        android:layout_height="wrap_content"
+    	        android:text="Sulit ba?"
+        		android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    		<RatingBar
+    		    android:id="@+id/worthRB"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content" 
+    		    android:layout_gravity="right"
+    		    android:max="5"/>
+    		
+    		<TableRow 
+    		    android:layout_width="fill_parent"
+    	    	android:layout_height="wrap_content" 
+    	    	android:gravity="center">
+    	        
+    	    	<TextView
+    	        	android:id="@+id/locationLabel"
+    	        	android:layout_width="160dp"
+    	        	android:layout_height="wrap_content"
+        			android:textAppearance="?android:attr/textAppearanceLarge" />
+    	    
+    		</TableRow>
+    		    
+    	</LinearLayout>
+    
+    </ScrollView>
+    		
+    <Button
+    	android:id="@+id/barkadaET"
+    	android:layout_width="320dp"
+    	android:layout_height="wrap_content"
+    	android:text="Ok! Saan Na!">
+    </Button>
+
+</LinearLayout>
