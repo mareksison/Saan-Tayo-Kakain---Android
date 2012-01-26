@@ -1,6 +1,6 @@
 package com.saantayokakainandroid;
 
-public class Restaurant {
+public class Restaurant implements Comparable<Restaurant> {
 
 	private String name;
 	private double location;
@@ -13,7 +13,7 @@ public class Restaurant {
 	private String lastDate;
 	private int kainCounter;
 	private int declinedCounter;
-	private double score;
+	private Double score;
 	private int cost;
 	
 	public Restaurant(String n, double loc){
@@ -127,5 +127,9 @@ public class Restaurant {
 	public void setScore(double s)
 	{
 		score = s;
+	}
+	
+	public int compareTo(Restaurant r) {
+		return this.score.compareTo(r.score);
 	}
 }
