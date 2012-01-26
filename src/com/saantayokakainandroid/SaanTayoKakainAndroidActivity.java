@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -55,7 +56,8 @@ public class SaanTayoKakainAndroidActivity extends Activity {
         thisMonth = cal.get(Calendar.MONTH)+1;
         populate();
     	generateScores();
-    	recursion();
+    	Collections.sort(kainan);
+    	Collections.reverse(kainan);
     	save();
         initUI();
     }
@@ -238,44 +240,6 @@ public class SaanTayoKakainAndroidActivity extends Activity {
     		//Toast.makeText(getApplicationContext(), kainan.get(x).getName()+ " "+score, Toast.LENGTH_SHORT).show();
     		kainan.get(x).setScore(score);
     	}
-    }
-    
-    public void recursion()
-    {
-    	//this used to be recursion but I found out that this one is simpler logic
-    	for (int j = (kainan.size()-1); j>0; j--)
-    	{
-    		for (int i = (j-1); i>=0; i--)
-    		{
-    			if (kainan.get(i).getScore() < kainan.get(j).getScore())
-    			{
-    				swap(i,j);
-    			}
-    		}
-    	}
-    }
-    
-    
-    public void swap(int a, int b)
-    {
-    	Restaurant u = new Restaurant(kainan.get(b).getName(), kainan.get(b).getLocation());
-    	u.setRestaurant(u.getName(), u.getLocation(), kainan.get(b).getCuisine(), kainan.get(b).getPeopleMax(),
-    			kainan.get(b).getWorth(), kainan.get(b).getOT(), kainan.get(b).getCT(), kainan.get(b).getIsO());
-    	u.setParams(kainan.get(b).getLastDate(), kainan.get(b).getKainC(), kainan.get(b).getDeclinedC());
-    	u.setScore(kainan.get(b).getScore());
-    	u.setCost(kainan.get(b).getCost());
-    	kainan.get(b).setRestaurant(kainan.get(a).getName(), kainan.get(a).getLocation(), kainan.get(a).getCuisine(),
-    			kainan.get(a).getPeopleMax(), kainan.get(a).getWorth(), kainan.get(a).getOT(),
-    			kainan.get(a).getCT(), kainan.get(a).getIsO());
-    	kainan.get(b).setParams(kainan.get(a).getLastDate(), kainan.get(a).getKainC(), kainan.get(a).getDeclinedC());
-    	kainan.get(b).setScore(kainan.get(a).getScore());
-    	kainan.get(b).setCost(kainan.get(a).getCost());
-    	kainan.get(a).setRestaurant(u.getName(), u.getLocation(), u.getCuisine(),
-    			u.getPeopleMax(), u.getWorth(), u.getOT(),
-    			u.getCT(), u.getIsO());
-    	kainan.get(a).setParams(u.getLastDate(), u.getKainC(), u.getDeclinedC());
-    	kainan.get(a).setScore(u.getScore());
-    	kainan.get(a).setCost(u.getCost());
     }
 
     public Dialog onCreateDialog(int id)
