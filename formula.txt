@@ -1,0 +1,33 @@
+Location percentages
+
+Sec A
+Zen Garden (Berch, Xavier, and Gonzaga)
+
+85% all areas
+
+Sec Complex (w/o Sec A)
+
+100% areas 2 & 2.5
+50% area 3
+25% area 3.5
+20% area 4
+
+Old Library (plus Faber Hall, Xavier Hall, and Socsci Bldg.)
+
+85% area 3.5
+45% areas 3, 4
+20% areas 2, 2.5
+
+Faura Hall
+New Library
+Leong Hall
+
+100% areas 3 & 3.5
+50% areas 2.5, 4
+25% area 2
+
+MVP
+
+75 % all areas
+
+(cost*20%+loc*20%+w*25%+c15%+tao10%)*time(boolean)*open(boolean)

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SaanTayoKakainAndroidActivity!</string>
+    <string name="app_name">Saan Tayo Kakain</string>
+    <string name="question">Watcha wanna do?</string>
+    <string name="locationPrompt">Saan ka malapit?</string>
+    <string-array name="locationArray">
+        <item>Di ko alam</item>
+        <item>Area 2</item>
+        <item>Area 2.5</item>
+        <item>Area 3</item>
+        <item>Area 3.5</item>
+        <item>Area 4</item>
+    </string-array>
+    <string name="cuisinePrompt">Cuisine</string>
+    <string-array name="cuisineArray">
+        <item>Kahit ano</item>
+        <item>Chinese</item>
+        <item>Fast food</item>
+        <item>Fusion</item>
+        <item>Japanese</item>
+        <item>Mexican</item>
+        <item>Inasal</item>
+        <item>Mediterranean</item>
+        <item>Pizza</item>
+        <item>Other</item>
+    </string-array>
+    <string name="costPrompt">Cost</string>
+    <string-array name="costArray">
+        <item>100 pababa</item>
+        <item>100 to 150</item>
+        <item>150 to 250</item>
+        <item>250 to 300</item>
+        <item>sky\'s the limit!</item>
+    </string-array>
+    <string name="congratsLabel">You chose x!</string>
+    <string name="viewLabel">Restaurant Menu</string>
+
+</resources>

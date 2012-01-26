@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="fill_parent" 
+		android:orientation="vertical" >
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:typeface="monospace"
+            android:text="Saan tayo kakain?"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/manageB"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+        	android:drawableLeft="@drawable/manageicon"
+            android:layout_gravity="center_horizontal"
+            android:text="Manage" />
+        <Button
+            android:id="@+id/chooseB"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+        	android:drawableLeft="@drawable/chooseicon"
+            android:layout_gravity="center_horizontal"
+            android:text="Choose" />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/kainDitoLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:text="Baka gusto mo na lang kumain dito:"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+            
+            <Button
+            android:id="@+id/chosenA"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+        	android:drawableLeft="@drawable/chooseicon"
+            android:layout_gravity="center_horizontal"
+            android:text="Choose" />
+            
+            <Button
+            android:id="@+id/chosenB"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+        	android:drawableLeft="@drawable/chooseicon"
+            android:layout_gravity="center_horizontal"
+            android:text="Choose" />
+            
+            <Button
+            android:id="@+id/chosenC"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+        	android:drawableLeft="@drawable/chooseicon"
+            android:layout_gravity="center_horizontal"
+            android:text="Choose" />
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
