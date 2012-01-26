@@ -35,7 +35,6 @@
         android:orientation="vertical" >
         
     	<TextView
-    	    android:id="@+id/achieveTV"
     	    android:layout_width="fill_parent"
     	    android:layout_height="wrap_content"
     	    android:gravity="center"
@@ -48,15 +47,9 @@
         android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.1"
+        android:layout_weight="0.2"
         android:orientation="vertical" >
 
     </LinearLayout>
-    
-    <Button 
-        android:id="@+id/achieveHomeB"
-        android:layout_width="160dp"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:text="Home"/>
+
 </LinearLayout>

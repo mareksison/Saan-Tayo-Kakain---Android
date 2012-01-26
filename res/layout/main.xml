@@ -4,15 +4,6 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-	<ScrollView android:layout_width="fill_parent"
-		android:layout_height="fill_parent" 
-		android:orientation="vertical" >
-	
-	<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical" >
-
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
@@ -38,14 +29,12 @@
             android:id="@+id/manageB"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-        	android:drawableLeft="@drawable/manageicon"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             android:text="Manage" />
         <Button
             android:id="@+id/chooseB"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-        	android:drawableLeft="@drawable/chooseicon"
             android:layout_gravity="center_horizontal"
             android:text="Choose" />
         
@@ -53,12 +42,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/kainDitoLL"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
@@ -69,35 +58,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:typeface="monospace"
-            android:text="Baka gusto mo na lang kumain dito:"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-            
-            <Button
-            android:id="@+id/chosenA"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-        	android:drawableLeft="@drawable/chooseicon"
-            android:layout_gravity="center_horizontal"
-            android:text="Choose" />
-            
-            <Button
-            android:id="@+id/chosenB"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-        	android:drawableLeft="@drawable/chooseicon"
-            android:layout_gravity="center_horizontal"
-            android:text="Choose" />
-            
-            <Button
-            android:id="@+id/chosenC"
-            android:layout_width="160dp"
-            android:layout_height="wrap_content"
-        	android:drawableLeft="@drawable/chooseicon"
-            android:layout_gravity="center_horizontal"
-            android:text="Choose" />
+            android:text="You might want to eat here:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </LinearLayout>
-    </LinearLayout>
-    </ScrollView>
 
 </LinearLayout>

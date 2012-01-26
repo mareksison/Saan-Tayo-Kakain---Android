@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 	
-	<LinearLayout
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9">
+        
+        <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="0.9">
-            
-            <ScrollView
-                android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-        		android:orientation="vertical">
-                
-                <LinearLayout
-                android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-        		android:orientation="vertical">
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
             
     		<TextView
     	    	android:id="@+id/filterTitle"
     	    	android:layout_width="wrap_content"
         		android:layout_height="wrap_content"
-        		android:text="Sagutin mo muna ako Ser"
+        		android:text="O, anong gusto mo?"
+        		android:gravity="center"
         		android:textAppearance="?android:attr/textAppearanceLarge" />
     		
     		<TableRow 
@@ -35,7 +30,7 @@
     	        
     	    	<TextView
     	        	android:id="@+id/locationLabel"
-    	        	android:layout_width="100dp"
+    	        	android:layout_width="160dp"
     	        	android:layout_height="wrap_content"
         			android:textAppearance="?android:attr/textAppearanceLarge" />
     	    
@@ -47,18 +42,18 @@
     	    	android:gravity="center">
     	        
     	    	<TextView
+    	        	android:id="@+id/locationLabel"
     	        	android:layout_width="160dp"
     	        	android:layout_height="wrap_content"
-    	        	android:text="Saan ka malapit?"
-    	        	android:scrollHorizontally="true"
+    	        	android:text="Saan ka, ba?"
         			android:textAppearance="?android:attr/textAppearanceMedium" />
     	    	
-    	    	<Spinner
-    	    	    android:id="@+id/locationS"
+    	    	<Button
+    	    	    android:id="@+id/locationB"
     	    	    android:layout_width="160dp"
     	    	    android:layout_height="wrap_content"
-    	    	    android:prompt="@string/locationPrompt">    	    	    
-    	    	</Spinner>
+    	    	    android:hint="Required">    	    	    
+    	    	</Button>
     	    
     		</TableRow>
     		
@@ -71,7 +66,6 @@
     	        	android:id="@+id/costLabel"
     	        	android:layout_width="160dp"
     	        	android:layout_height="wrap_content"
-    	        	android:scrollHorizontally="true"
     	        	android:text="Magkano pera mo?"
         			android:textAppearance="?android:attr/textAppearanceMedium" />
     	    	
@@ -93,8 +87,7 @@
     	        	android:id="@+id/cuisineLabel"
     	        	android:layout_width="160dp"
     	        	android:layout_height="wrap_content"
-    	        	android:scrollHorizontally="true"
-    	        	android:text="Ano trip mo?"
+    	        	android:text="Klase ng pagkain?"
         			android:textAppearance="?android:attr/textAppearanceMedium" />
     	    	
     	    	<Spinner
@@ -114,20 +107,32 @@
     		    <TextView
     	        	android:id="@+id/barkadaLabel"
     	        	android:layout_width="160dp"
-    	        	android:scrollHorizontally="true"
     	        	android:layout_height="wrap_content"
-    	        	android:text="Ilan kayo?"
+    	        	android:text="Pang ilang tao?"
         			android:textAppearance="?android:attr/textAppearanceMedium" />
 
     		    <EditText
-    		        android:id="@+id/brkadaET"
+    		        android:id="@+id/barkadaET"
     		        android:layout_width="160dp"
     		        android:layout_height="wrap_content"
-    		        android:text="1"
     		        android:inputType="number">
     		    </EditText>
     		    
     		</TableRow>
+
+    	    <TextView
+    	        android:id="@+id/worthLabel"
+    	        android:layout_width="160dp"
+    	        android:layout_height="wrap_content"
+    	        android:text="Sulit ba?"
+        		android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    		<RatingBar
+    		    android:id="@+id/worthRB"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content" 
+    		    android:layout_gravity="right"
+    		    android:max="5"/>
     		
     		<TableRow 
     		    android:layout_width="fill_parent"
@@ -136,41 +141,21 @@
     	        
     	    	<TextView
     	        	android:id="@+id/locationLabel"
-    	        	android:layout_width="100dp"
+    	        	android:layout_width="160dp"
     	        	android:layout_height="wrap_content"
         			android:textAppearance="?android:attr/textAppearanceLarge" />
     	    
     		</TableRow>
-    		
-    	<LinearLayout android:layout_width="fill_parent"
-	    	android:layout_height="wrap_content"
-    		android:orientation="vertical">	
-    		<Button
-    			android:id="@+id/filterB"
-	    		android:layout_width="160dp"
-		    	android:layout_height="wrap_content"
-		    	android:layout_gravity="center"
-    			android:text="Okidoks! Saan Na!?">
-    		</Button>
-    		
+    		    
     	</LinearLayout>
-    </LinearLayout>
-    </ScrollView>
-    </LinearLayout>
-    		
-    <TableRow
-		android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
     
-	    <Button
-    		android:id="@+id/filterBackB"
-    		android:layout_width="160dp"
-	    	android:layout_height="wrap_content"
-    		android:text="Home">
-    	</Button>
-    	
-    </TableRow>
+    </ScrollView>
+    		
+    <Button
+    	android:id="@+id/filterB"
+    	android:layout_width="320dp"
+    	android:layout_height="wrap_content"
+    	android:text="Ok! Saan Na!">
+    </Button>
 
 </LinearLayout>
