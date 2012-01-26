@@ -21,7 +21,6 @@
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
         		    android:layout_gravity="center"
-		            android:textColor="#8bccd0"
         		    android:typeface="monospace"
 		            android:text="Manage"
         		    android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -37,6 +36,7 @@
             		android:layout_width="160dp"
 		            android:layout_height="wrap_content"
         		    android:layout_gravity="center_horizontal"
+        		    android:drawableLeft="@drawable/addicon"
 		            android:text="Add" />
 
 		        <TextView android:text=""
@@ -49,6 +49,7 @@
 		            android:layout_width="160dp"
         		    android:layout_height="wrap_content"
 		            android:layout_gravity="center"
+		            android:drawableLeft="@drawable/viewicon"
         		    android:text="View" />
         	</LinearLayout>
         	
@@ -71,9 +72,8 @@
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
         		    android:layout_gravity="center"
-		            android:textColor="#8bccd0"
         		    android:typeface="monospace"
-		            android:text="So you want to add a new Restaurant huh?"
+		            android:text="O, may bago?"
         		    android:textAppearance="?android:attr/textAppearanceLarge" />
                     
                     <TableRow
@@ -84,7 +84,7 @@
 				            android:layout_width="160dp"
 				            android:layout_height="wrap_content"
 				            android:layout_weight="1"
-		        		    android:text="Name: "
+		        		    android:text="Pangalan: "
 		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
                         
                         <EditText android:layout_width="160dp"
@@ -103,14 +103,14 @@
                         <TextView
 				            android:layout_width="160dp"
 				            android:layout_height="wrap_content"
-		        		    android:text="Location: "
+		        		    android:text="Lugar: "
 		        		    android:layout_weight="1"
 		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
                         
                         <Button android:layout_width="160dp"
                             android:layout_height="wrap_content"
                             android:scrollHorizontally="true"
-                            android:hint="Required"
+                            android:text="Required"
                             android:layout_weight="1"
                             android:id="@+id/LocB"
                              />
@@ -124,7 +124,7 @@
                         <TextView
 				            android:layout_width="160dp"
 				            android:layout_height="wrap_content"
-		        		    android:text="Cuisine: "
+		        		    android:text="Klase ng pagkain: "
 		        		    android:layout_weight="1"
 		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
                         
@@ -144,7 +144,7 @@
                         <TextView
 				            android:layout_width="160dp"
 				            android:layout_height="wrap_content"
-		        		    android:text="Worth: "
+		        		    android:text="Sulit ba? "
 		        		    android:layout_weight="1"
 		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
                         
@@ -211,7 +211,7 @@
                         <TextView
 				            android:layout_width="160dp"
 				            android:layout_height="wrap_content"
-		        		    android:text="Pang-ilang tao? "
+		        		    android:text="Pang ilang tao? "
 		        		    android:layout_weight="1"
 		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
                         
@@ -220,8 +220,31 @@
                             android:scrollHorizontally="true"
                             android:layout_weight="1"
                             android:inputType="number"
+                            android:text="1"
                             android:id="@+id/BarkadaET"
-                            android:hint="Required" />
+                            />
+                        
+                    </TableRow>
+                    
+                    <TableRow
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        
+                        <TextView
+				            android:layout_width="160dp"
+				            android:layout_height="wrap_content"
+		        		    android:text="Magkano kaya? "
+		        		    android:layout_weight="1"
+		        		    android:textAppearance="?android:attr/textAppearanceMedium" />
+                        
+                        <EditText android:layout_width="160dp"
+                            android:layout_height="wrap_content"
+                            android:scrollHorizontally="true"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="0"
+                            android:id="@+id/CostET"
+                            />
                         
                     </TableRow>
                     
@@ -262,6 +285,7 @@
 	            android:layout_width="160dp"
        		    android:layout_height="wrap_content"
 	            android:layout_gravity="center_horizontal"
+	            android:enabled="false"
 	            android:text="Back" />
         	</TableRow>
         
