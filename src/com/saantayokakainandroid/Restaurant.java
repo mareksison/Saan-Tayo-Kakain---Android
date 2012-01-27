@@ -2,19 +2,19 @@ package com.saantayokakainandroid;
 
 public class Restaurant implements Comparable<Restaurant> {
 
-	private String name;
-	private double location;
-	private String cuisine;
-	private Integer maxPeople;
-	private String worth;
-	private String openingTime;
-	private String closingTime;
-	private boolean isOpen;
-	private String lastDate;
-	private int kainCounter;
-	private int declinedCounter;
-	private Double score;
-	private int cost;
+	public String name;
+	public double location;
+	public String cuisine;
+	public Integer maxPeople;
+	public String worth;
+	public String openingTime;
+	public String closingTime;
+	public boolean isOpen;
+	public String lastDate;
+	public int kainCounter;
+	public int declinedCounter;
+	public Double score;
+	public int cost;
 	
 	public Restaurant(String n, double loc){
 		name = n;
