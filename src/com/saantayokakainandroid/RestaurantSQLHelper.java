@@ -23,8 +23,8 @@ public class RestaurantSQLHelper extends SQLiteOpenHelper {
 	public static final String SCORE = "score";
 	public static final String COST = "cost";
 	
-	public static final String DB_CREATE = "create table"
-			+ RESTAURANT_TABLE + "("
+	public static final String DB_CREATE = "create table "
+			+ RESTAURANT_TABLE + " ( "
 			+ ID + " text primary key, "
 			+ LOCATION + " float, "
 			+ CUISINE + " Text, "
@@ -34,8 +34,8 @@ public class RestaurantSQLHelper extends SQLiteOpenHelper {
 			+ APPROVAL_RATE + " integer, "
 			+ DECLINE_RATE + " integer, "
 			+ SCORE + " float, "
-			+ COST + " float, "
-			+ ")";
+			+ COST + " float "
+			+ " ) ";
 	
 
 	public RestaurantSQLHelper(Context context, String name,
