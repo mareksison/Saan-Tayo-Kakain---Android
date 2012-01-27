@@ -35,7 +35,6 @@ public class FilterActivity extends Activity {
 	private ArrayList<Restaurant> kainan;
 	private Calendar cal;
     private int today, thisMonth;
-    public static final String RESTAURANTFILE = "/sdcard/Restaurant.txt";
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
