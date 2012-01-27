@@ -39,10 +39,11 @@ public class RestaurantStorage {
 	
 	public RestaurantStorage(Context c) {
 		helper = new RestaurantSQLHelper(c);
+		open();
 	}
 	
 	public void open() throws SQLException {
-		db = helper.getReadableDatabase();
+		db = helper.getWritableDatabase();
 	}
 	
 	public void close() {
@@ -93,6 +94,7 @@ public class RestaurantStorage {
 			r.cost = cost;
 			
 			restaurants.add(r);
+			cursor.moveToNext();
 		}
 		cursor.close();
 		
