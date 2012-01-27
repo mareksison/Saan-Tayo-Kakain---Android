@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -40,25 +41,25 @@ public class SaanTayoKakainAndroidActivity extends Activity {
     private Calendar cal;
     public static final int ALERT_DIALOG1 = 2;
     private int buttonClick;
-    private ArrayList<Restaurant> kainan;
+    private List<Restaurant> kainan;
     private int today, thisMonth;
-    public static final String RESTAURANTFILE = "/sdcard/Restaurant.txt";
+    
+    RestaurantStorage storage;
 	
     /** Called when the activity is first created. */
     
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        kainan = new ArrayList<Restaurant>();
+        storage = new RestaurantStorage(this);
+        kainan = storage.getAllRestaurants();
         buttonClick = 0;
         cal = Calendar.getInstance();
         today = cal.get(Calendar.DAY_OF_MONTH);
         thisMonth = cal.get(Calendar.MONTH)+1;
-        populate();
     	generateScores();
     	Collections.sort(kainan);
     	Collections.reverse(kainan);
-    	save();
         initUI();
     }
     
@@ -97,7 +98,6 @@ public class SaanTayoKakainAndroidActivity extends Activity {
     	manageB.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View arg0){
-				save();
 	    		startActivity(manageI);
 			}
 		});
@@ -106,7 +106,6 @@ public class SaanTayoKakainAndroidActivity extends Activity {
     	chooseB.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View arg0){
-				save();
 	    		startActivity(chooseI);
 			}
 		});
@@ -136,50 +135,18 @@ public class SaanTayoKakainAndroidActivity extends Activity {
     	
     	if (item.getItemId() == R.id.quit)
     	{
-    		save();
     		getApplication().stopService(getIntent());
     		this.finish();
     	}
     	return true;
     }
     
-    public void populate()
-    {
-    	BufferedReader buf;
-		try
-		{
-			buf = new BufferedReader(new FileReader(RESTAURANTFILE));
-			String line = buf.readLine();
-			while (line != null)
-			{
-				String[] temp = line.split("\\|");
-				int m = kainan.size();
-				boolean is = temp[7].equals("true");
-				kainan.add(new Restaurant(temp[0], Double.parseDouble(temp[1])));
-				kainan.get(m).setRestaurant(temp[0], Double.parseDouble(temp[1]),
-						temp[2], temp[3], temp[4],
-						temp[5], temp[6], is);
-				kainan.get(m).setParams(temp[8], Integer.parseInt(temp[9]), Integer.parseInt(temp[10]));
-				kainan.get(m).setCost(Integer.parseInt(temp[11]));
-				line = buf.readLine();
-			}
-			buf.close();
-		}
-			catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();				
-			}
-	}
-    
     public void generateScores()
     {
     	for (int x = 0; x<kainan.size(); x++)
     	{
-    		double score = 50;
-    		score += ((Double.parseDouble(kainan.get(x).getWorth())*20)*0.15);
+    		float score = 50;
+    		score += (kainan.get(x).getWorth()*20*0.15);
     		score += (100-(kainan.get(x).getDeclinedC()*4))*0.15;
     		String last = kainan.get(x).getLastDate();
     		try
@@ -290,6 +257,7 @@ public class SaanTayoKakainAndroidActivity extends Activity {
 		           public void onClick(DialogInterface dialog, int id) 
 		           {
 		        	    String dateToday = ""+thisMonth + "/"+today;
+		        	    Restaurant r;
 		        	    if (thisMonth <= 9)
 		        	    {
 		        	    	dateToday = "0"+thisMonth + "/"+today;
@@ -304,39 +272,42 @@ public class SaanTayoKakainAndroidActivity extends Activity {
 		        	    }
 		        	    if (buttonClick == 1)
 		        	    {
-		        	    	kainan.get(0).setLastDate(dateToday);
+		        	    	r = kainan.get(0);
 		        	    }
 		        	    else if (buttonClick == 2)
 		        	    {
-		        	    	kainan.get(1).setLastDate(dateToday);
+		        	    	r = kainan.get(1);
 		        	    }
 		        	    else
 		        	    {
-		        	    	kainan.get(2).setLastDate(dateToday);
+		        	    	r = kainan.get(2);
 		        	    }
 		                dialog.dismiss();
 		                removeDialog(ALERT_DIALOG1);
-		                save();
+		                r.setLastDate(dateToday);
+		                storage.writeRestaurant(r);
 		                startActivity(aScreen);
 		           }
 		       })
 		       .setNegativeButton("Baka next time", new DialogInterface.OnClickListener() {
 		           public void onClick(DialogInterface dialog, int id) 
 		           {
+		        	   Restaurant r;
 		        	   if (buttonClick == 1)
 		        	    {
-		        		   kainan.get(0).incDeclinedC();
+		        		   r = kainan.get(0);
 		        	    }
 		        	    else if (buttonClick == 2)
 		        	    {
-		        	    	kainan.get(1).incDeclinedC();
+		        	    	r = kainan.get(1);
 		        	    }
 		        	    else
 		        	    {
-		        	    	kainan.get(2).incDeclinedC();
+		        	    	r = kainan.get(2);
 		        	    }
 		                dialog.dismiss();
-		                save();
+		                r.incDeclinedC();
+		                storage.writeRestaurant(r);
 		                removeDialog(ALERT_DIALOG1);
 		           }
 		       });
@@ -352,32 +323,5 @@ public class SaanTayoKakainAndroidActivity extends Activity {
 	    	case ALERT_DIALOG1:
 	    		break;
     	}
-    }
-    
-    public void save()
-    {
-    	FileWriter out;
-    	try
-    	{
-    	out = new FileWriter(RESTAURANTFILE, false);
-    	out.write("");
-    	out = new FileWriter(RESTAURANTFILE, true);
-    	for (int z = 0; z<kainan.size(); z++)
-    	{
-    		String s = kainan.get(z).getName()+"|"+ ""+kainan.get(z).getLocation()+"|" +kainan.get(z).getCuisine()+
-    				"|" +kainan.get(z).getPeopleMax()+"|" +kainan.get(z).getWorth()+"|" +kainan.get(z).getOT()+
-        			"|" +kainan.get(z).getCT()+"|" +""+kainan.get(z).getIsO()+"|" +kainan.get(z).getLastDate()+"|" +
-    				""+kainan.get(z).getKainC()+"|" +""+kainan.get(z).getDeclinedC()+"|"+""+kainan.get(z).getCost();
-    		out.write(s+"\n");
-    	}
-    	out.close();
-    	}
-    	catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
 }
