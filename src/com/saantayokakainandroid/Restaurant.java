@@ -12,8 +12,8 @@ public class Restaurant implements Comparable<Restaurant> {
 	public String last_eating_date;
 	public int approval_rate;
 	public int decline_rate;
-	public Double score;
-	public int cost;
+	public float score;
+	public float cost;
 	
 	public Restaurant(String n, float loc){
 		name = n;
