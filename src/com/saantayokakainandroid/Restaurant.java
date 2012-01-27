@@ -9,7 +9,6 @@ public class Restaurant implements Comparable<Restaurant> {
 	public String worth;
 	public String openingTime;
 	public String closingTime;
-	public boolean isOpen;
 	public String last_eating_date;
 	public int approval_rate;
 	public int decline_rate;
@@ -19,12 +18,11 @@ public class Restaurant implements Comparable<Restaurant> {
 	public Restaurant(String n, double loc){
 		name = n;
 		location = loc;
-		isOpen = true;
 		approval_rate = decline_rate = 0;
 		last_eating_date = "none provided";
 	}
 	
-	public void setRestaurant(String n, double loc, String c, Integer p, String w, String oT, String cT, boolean isO)
+	public void setRestaurant(String n, double loc, String c, Integer p, String w, String oT, String cT)
 	{
 		name = n;
 		location = loc;
@@ -33,7 +31,6 @@ public class Restaurant implements Comparable<Restaurant> {
 		worth = w;
 		openingTime = oT;
 		closingTime = cT;
-		isOpen = isO;
 	}
 	
 	public void setLastDate(String d)
