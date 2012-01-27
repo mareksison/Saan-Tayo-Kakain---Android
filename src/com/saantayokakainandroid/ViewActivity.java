@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,19 +19,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class ViewActivity extends Activity{
-	private ArrayList<Restaurant> kainan;
+	private List<Restaurant> kainan;
 	private LinearLayout here;
 	private ArrayList<TextView> tekusutoBiyu;
 	private TextView tv1;
 	private Intent iUwi;
 	private Button home;
 	public static final int ALERT_DIALOG1 = 2;
-	public static final String RESTAURANTFILE = "/sdcard/Restaurant.txt";
+	
+	RestaurantStorage storage;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.viewall);
-        kainan = new ArrayList<Restaurant>();
+        storage = new RestaurantStorage(this);
         tekusutoBiyu = new ArrayList<TextView>();
         tv1 = (TextView) findViewById(R.id.textView1);
         home = (Button) findViewById(R.id.uwiB);
@@ -44,39 +46,8 @@ public class ViewActivity extends Activity{
 				getApplication().stopService(getIntent());
 			}
 		});
-        populate();
+        kainan = storage.getAllRestaurants();
         fill();
-	}
-	
-	public void populate()
-    {
-    	BufferedReader buf;
-		try
-		{
-			buf = new BufferedReader(new FileReader(RESTAURANTFILE));
-			String line = buf.readLine();
-			while (line != null)
-			{
-				String[] temp = line.split("\\|");
-				int m = kainan.size();
-				boolean is = temp[7].equals("true");
-				kainan.add(new Restaurant(temp[0], Double.parseDouble(temp[1])));
-				kainan.get(m).setRestaurant(temp[0], Double.parseDouble(temp[1]),
-						temp[2], temp[3], temp[4],
-						temp[5], temp[6], is);
-				kainan.get(m).setParams(temp[8], Integer.parseInt(temp[9]), Integer.parseInt(temp[10]));
-				kainan.get(m).setCost(Integer.parseInt(temp[11]));
-				line = buf.readLine();
-			}
-			buf.close();
-		}
-			catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();				
-			}
 	}
 	
 	public void fill()
