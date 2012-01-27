@@ -12,7 +12,7 @@ public class Restaurant implements Comparable<Restaurant> {
 	public String last_eating_date;
 	public int approval_rate;
 	public int decline_rate;
-	public float score;
+	public Float score;
 	public float cost;
 	
 	public Restaurant(String n, float loc){
@@ -51,7 +51,7 @@ public class Restaurant implements Comparable<Restaurant> {
 		cost = x;
 	}
 	
-	public int getCost()
+	public float getCost()
 	{
 		return cost;
 	}
@@ -121,7 +121,7 @@ public class Restaurant implements Comparable<Restaurant> {
 		return score;
 	}
 	
-	public void setScore(double s)
+	public void setScore(float s)
 	{
 		score = s;
 	}
