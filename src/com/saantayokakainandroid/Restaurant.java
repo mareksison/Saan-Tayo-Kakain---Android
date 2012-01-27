@@ -5,7 +5,7 @@ public class Restaurant implements Comparable<Restaurant> {
 	private String name;
 	private double location;
 	private String cuisine;
-	private String peopleMax;
+	private Integer maxPeople;
 	private String worth;
 	private String openingTime;
 	private String closingTime;
@@ -24,12 +24,12 @@ public class Restaurant implements Comparable<Restaurant> {
 		lastDate = "none provided";
 	}
 	
-	public void setRestaurant(String n, double loc, String c, String p, String w, String oT, String cT, boolean isO)
+	public void setRestaurant(String n, double loc, String c, Integer p, String w, String oT, String cT, boolean isO)
 	{
 		name = n;
 		location = loc;
 		cuisine = c;
-		peopleMax = p;
+		maxPeople = p;
 		worth = w;
 		openingTime = oT;
 		closingTime = cT;
@@ -94,9 +94,9 @@ public class Restaurant implements Comparable<Restaurant> {
 		return cuisine;
 	}
 	
-	public String getPeopleMax()
+	public Integer getMaxPeople()
 	{
-		return peopleMax;
+		return maxPeople;
 	}
 	
 	public String getWorth()
