@@ -94,6 +94,7 @@ public class RestaurantStorage {
 			
 			restaurants.add(r);
 		}
+		cursor.close();
 		
 		return restaurants;
 	}
