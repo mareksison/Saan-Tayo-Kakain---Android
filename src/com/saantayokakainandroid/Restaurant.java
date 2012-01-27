@@ -10,9 +10,9 @@ public class Restaurant implements Comparable<Restaurant> {
 	public String openingTime;
 	public String closingTime;
 	public boolean isOpen;
-	public String lastDate;
-	public int kainCounter;
-	public int declinedCounter;
+	public String last_eating_date;
+	public int approval_rate;
+	public int decline_rate;
 	public Double score;
 	public int cost;
 	
@@ -20,8 +20,8 @@ public class Restaurant implements Comparable<Restaurant> {
 		name = n;
 		location = loc;
 		isOpen = true;
-		kainCounter = declinedCounter = 0;
-		lastDate = "none provided";
+		approval_rate = decline_rate = 0;
+		last_eating_date = "none provided";
 	}
 	
 	public void setRestaurant(String n, double loc, String c, Integer p, String w, String oT, String cT, boolean isO)
@@ -38,15 +38,15 @@ public class Restaurant implements Comparable<Restaurant> {
 	
 	public void setLastDate(String d)
 	{
-		lastDate = d;
-		kainCounter++;
+		last_eating_date = d;
+		approval_rate++;
 	}
 	
 	public void setParams(String ld, int k, int d)
 	{
-		lastDate = ld;
-		kainCounter = k;
-		declinedCounter = d;
+		last_eating_date = ld;
+		approval_rate = k;
+		decline_rate = d;
 	}
 	
 	public void setCost(int x)
@@ -61,22 +61,22 @@ public class Restaurant implements Comparable<Restaurant> {
 	
 	public void incDeclinedC()
 	{
-		declinedCounter++;
+		decline_rate++;
 	}
 	
 	public int getKainC()
 	{
-		return kainCounter;
+		return approval_rate;
 	}
 	
 	public int getDeclinedC()
 	{
-		return declinedCounter;
+		return decline_rate;
 	}
 	
 	public String getLastDate()
 	{
-		return lastDate;
+		return last_eating_date;
 	}
 	
 	public String getName()
