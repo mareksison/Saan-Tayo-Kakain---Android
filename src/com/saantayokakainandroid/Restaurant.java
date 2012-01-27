@@ -3,7 +3,7 @@ package com.saantayokakainandroid;
 public class Restaurant implements Comparable<Restaurant> {
 
 	public String name;
-	public double location;
+	public float location;
 	public String cuisine;
 	public Integer maxPeople;
 	public String worth;
@@ -15,14 +15,14 @@ public class Restaurant implements Comparable<Restaurant> {
 	public Double score;
 	public int cost;
 	
-	public Restaurant(String n, double loc){
+	public Restaurant(String n, float loc){
 		name = n;
 		location = loc;
 		approval_rate = decline_rate = 0;
 		last_eating_date = "none provided";
 	}
 	
-	public void setRestaurant(String n, double loc, String c, Integer p, String w, String oT, String cT)
+	public void setRestaurant(String n, float loc, String c, Integer p, String w, String oT, String cT)
 	{
 		name = n;
 		location = loc;
@@ -113,7 +113,7 @@ public class Restaurant implements Comparable<Restaurant> {
 	
 	public boolean getIsO()
 	{
-		return isOpen;
+		return false;
 	}
 	
 	public double getScore()
