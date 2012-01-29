@@ -7,6 +7,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -19,10 +20,10 @@ import android.database.sqlite.SQLiteDatabase;
  *	Version 1: Use a file implementation, written in an SD Card
  */
 public class RestaurantStorage {
-	
+
 	private SQLiteDatabase db;
 	private RestaurantSQLHelper helper;
-	
+
 	private static final String[] ALL_COLUMNS =
 		{ RestaurantSQLHelper.ID
 		, RestaurantSQLHelper.LOCATION
@@ -35,21 +36,21 @@ public class RestaurantStorage {
 		, RestaurantSQLHelper.SCORE
 		, RestaurantSQLHelper.COST
 		};
-	
-	
+
+
 	public RestaurantStorage(Context c) {
 		helper = new RestaurantSQLHelper(c);
 		open();
 	}
-	
+
 	public void open() throws SQLException {
 		db = helper.getWritableDatabase();
 	}
-	
+
 	public void close() {
 		helper.close();
 	}
-	
+
 	public void writeRestaurant(Restaurant r) {
 		ContentValues ct = new ContentValues();
 		ct.put(RestaurantSQLHelper.ID, r.getName());
@@ -62,10 +63,16 @@ public class RestaurantStorage {
 		ct.put(RestaurantSQLHelper.DECLINE_RATE, r.getDeclinedC());
 		ct.put(RestaurantSQLHelper.SCORE, r.getScore());
 		ct.put(RestaurantSQLHelper.COST, r.getCost());
-		
-		long rowID = db.insertOrThrow(RestaurantSQLHelper.RESTAURANT_TABLE, null, ct);
+
+		try {
+			db.insertOrThrow(RestaurantSQLHelper.RESTAURANT_TABLE, null, ct);
+		} catch (SQLiteConstraintException e) {
+			String whereclause = RestaurantSQLHelper.ID + "=?";
+			String[] wherearg = {r.getName()};
+			db.update(RestaurantSQLHelper.RESTAURANT_TABLE, ct, whereclause, wherearg);
+		}
 	}
-	
+
 	public List<Restaurant> getAllRestaurants() {
 		List<Restaurant> restaurants = new LinkedList<Restaurant>();
 		Cursor cursor = db.query(RestaurantSQLHelper.RESTAURANT_TABLE, ALL_COLUMNS, null
@@ -82,7 +89,7 @@ public class RestaurantStorage {
 			int decline_rate = cursor.getInt(7);
 			float score = cursor.getFloat(8);
 			float cost = cursor.getFloat(9);
-			
+
 			Restaurant r = new Restaurant(name, loc);
 			r.cuisine = cuisine;
 			r.maxPeople = maxpeople;
@@ -92,12 +99,12 @@ public class RestaurantStorage {
 			r.decline_rate = decline_rate;
 			r.score = score;
 			r.cost = cost;
-			
+
 			restaurants.add(r);
 			cursor.moveToNext();
 		}
 		cursor.close();
-		
+
 		return restaurants;
 	}
 }
